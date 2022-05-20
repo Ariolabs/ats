@@ -1,0 +1,16 @@
+version: "3.9"
+services:
+    database:
+        image: "postgres"
+        ports:
+            - 5432:5432
+        environment: 
+            POSTGRES_USER: hamzeh
+            POSTGRES_PASSWORD: hamzeh1378
+            PGPASSWORD: hamzeh1378
+            POSTGRES_DB: ATS
+            PGDATA: /db_data
+        volumes: 
+            - ATSDATA:/db_data                         
+volumes:
+    ATSDATA:
