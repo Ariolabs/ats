@@ -5,3 +5,4 @@ __pycache__
 *.po
 *.pyc
 *.pyo
+.ATSDATA

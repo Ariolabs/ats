@@ -11,6 +11,6 @@ services:
             POSTGRES_DB: ATS
             PGDATA: /db_data
         volumes: 
-            - ATSDATA:/db_data                         
+            - ATSDATA:/db_data
 volumes:
     ATSDATA:
