@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, PermissionsMixin
 from django.utils.translation import gettext_lazy as _
 from django.utils import timezone
+from authentication.models import AppToken
 
 class CustomUserManager(BaseUserManager):
     def create_superuser(self, email, user_name, phone_number, password, **other_fields):
@@ -52,3 +53,6 @@ class User(AbstractBaseUser, PermissionsMixin):
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['phone_number', 'user_name']
 
+    def generate_token(self):
+        token = AppToken.objects.get_or_create(user=self, app=None)
+        return token[0]
